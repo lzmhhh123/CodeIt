@@ -1,0 +1,27 @@
+.content-hidden {
+    display: none;
+}
+#chapter-list>.list-group {
+    font-family: 华文中宋;
+}
+#chapter-list>.list-group .active {
+    z-index: 2;
+    color: #fff;
+    background-color: #868E96;
+    border-color: #868E96;
+}
+#chapter-list>.list-group>.list-group-item:hover {
+    cursor: default;
+}
+#chapter-list>.list-group>.list-group-item:not(.active):hover {
+    background-color: #F8F9FA;
+}
+#chapter-context p {
+    font-family: 华文中宋;
+}
+#chapter-context h2 {
+    font-family: 华文中宋;
+}
+#chapter-context h3 {
+    font-family: 华文中宋;
+}

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Classes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+          crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+    <style>
+        .no-margin-bottom {
+            margin-bottom: 0;
+        }
+        .jumbotron-footer {
+            padding-top: 32px;
+            padding-bottom: 32px;
+            margin-bottom: 0;
+        }
+        .nav-footer {
+            font-size: small;
+            cursor: pointer;
+        }
+        .footer-text {
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-bottom: 5px;
+            color: darkgray;
+            font-size: small;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">NEWBRAIN</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="class.html">Classes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Problems</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="discuss.html">Discusses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="studio.html">Studio</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html" id="login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="register"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid" style="margin: 0; padding-top: 20px; padding-bottom: 20px; padding-left: 200px; padding-right: 200px;
+     background-color: #eeeeee">
+        <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media">
+                            <img class="d-flex mr-3" src="image/cpp.jpg" alt="image" width="100px" height="100px">
+                            <div class="media-body">
+                                <h5 class="mt-0">C++</h5>
+                                C++ is a general-purpose programming language. It is imperative, object-oriented and
+                                generic programming.
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-right"><a href="class-detail.html?class=cpp" class="btn btn-primary">Start Learning</a></div>
+                    </div>
+                    <div class="card-footer" style="padding-left: 60px; padding-right: 60px;">
+                        <div class="row">
+                            <div class="col"><p class="text-secondary font-weight-bold">Learners</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Lessons</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Quizzes</p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="cppLearners"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="cppLessons"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="cppQuizzes"><h5 class="text-info font-weight-bold">0</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media">
+                            <img class="d-flex mr-3" src="image/python.jpg" alt="image" width="100px" height="100px">
+                            <div class="media-body">
+                                <h5 class="mt-0">Python</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-right"><a href="#" class="btn btn-primary">Start Learning</a></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col"><p class="text-secondary font-weight-bold">Learners</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Lessons</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Quizzes</p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="pythonLearners"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="pythonLessons"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="pythonQuizzes"><h5 class="text-info font-weight-bold">0</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media">
+                            <img class="d-flex mr-3" src="image/js.jpg" alt="image" width="100px" height="100px">
+                            <div class="media-body">
+                                <h5 class="mt-0">Java Script</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-right"><a href="#" class="btn btn-primary">Start Learning</a></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col"><p class="text-secondary font-weight-bold">Learners</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Lessons</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Quizzes</p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="jsLearners"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="jsLessons"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="jsQuizzes"><h5 class="text-info font-weight-bold">0</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media">
+                            <img class="d-flex mr-3" src="image/Java.jpg" alt="image" width="100px" height="100px">
+                            <div class="media-body">
+                                <h5 class="mt-0">Java</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-right"><a href="#" class="btn btn-primary">Start Learning</a></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col"><p class="text-secondary font-weight-bold">Learners</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Lessons</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Quizzes</p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="javaLearners"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="javaLessons"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="javaQuizzes"><h5 class="text-info font-weight-bold">0</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media">
+                            <img class="d-flex mr-3" src="image/php.jpg" alt="image" width="100px" height="100px">
+                            <div class="media-body">
+                                <h5 class="mt-0">PHP</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-right"><a href="#" class="btn btn-primary">Start Learning</a></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col"><p class="text-secondary font-weight-bold">Learners</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Lessons</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Quizzes</p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="phpLearners"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="phpLessons"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="phpQuizzes"><h5 class="text-info font-weight-bold">0</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media">
+                            <img class="d-flex mr-3" src="image/csharp.jpg" alt="image" width="100px" height="100px">
+                            <div class="media-body">
+                                <h5 class="mt-0">C#</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-right"><a href="#" class="btn btn-primary">Start Learning</a></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col"><p class="text-secondary font-weight-bold">Learners</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Lessons</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Quizzes</p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="csharpLearners"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="csharpLessons"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="csharpQuizzes"><h5 class="text-info font-weight-bold">0</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media">
+                            <img class="d-flex mr-3" src="image/swift.jpg" alt="image" width="100px" height="100px">
+                            <div class="media-body">
+                                <h5 class="mt-0">Swift</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-right"><a href="#" class="btn btn-primary">Start Learning</a></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col"><p class="text-secondary font-weight-bold">Learners</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Lessons</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Quizzes</p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="swiftLearners"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="swiftLessons"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="swiftQuizzes"><h5 class="text-info font-weight-bold">0</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media">
+                            <img class="d-flex mr-3" src="image/ruby.jpg" alt="image" width="100px" height="100px">
+                            <div class="media-body">
+                                <h5 class="mt-0">Ruby</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-right"><a href="#" class="btn btn-primary">Start Learning</a></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col"><p class="text-secondary font-weight-bold">Learners</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Lessons</p></div>
+                            <div class="col"><p class="text-secondary font-weight-bold">Quizzes</p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="rubyLearners"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="rubyLessons"><h5 class="text-info font-weight-bold">0</h5></div>
+                            <div class="col" id="rubyQuizzes"><h5 class="text-info font-weight-bold">0</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-dark text-center font-weight-bold text-light" role="alert" style="margin: 0;">
+        Enjoy Your Study
+    </div>
+
+    <footer class="jumbotron jumbotron-fluid jumbotron-footer">
+        <ul class="nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link nav-footer" style="color: darkgray;" data-toggle="tooltip" data-html="true" data-placement="top"
+                   title="<img src='image/wechat.jpg' style='height:120px'>">
+                    <i class="fa fa-weixin" aria-hidden="true"></i> WeChat
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-footer" style="color: darkgray;" data-toggle="tooltip" data-html="true" data-placement="top"
+                   title="021-xxxxxxx">
+                    <i class="fa fa-phone" aria-hidden="true"></i> Telephone
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-footer" style="color: darkgray;" data-toggle="tooltip" data-html="true" data-placement="top"
+                   title="newbrain@gmail.com">
+                    <i class="fa fa-envelope" aria-hidden="true"></i> Email
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-footer" style="color: darkgray;" data-toggle="tooltip" data-html="true" data-placement="top"
+                   title="we are young">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> About
+                </a>
+            </li>
+        </ul>
+        <p class="footer-text">Newbrain is committed to providing the highest quality online teen computer programming education that allows everyone to enjoy programming.</p>
+        <p class="footer-text">All rights reserved by Newbrain Inc. 2016-2017</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(function () {
+                $("[data-toggle='tooltip']").tooltip();
+            });
+            $(".nav-footer").mouseover(function () {
+                $(this).css("color", "black");
+            });
+            $(".nav-footer").mouseout(function () {
+                $(this).css("color", "gray");
+            });
+            var classesData =
+                [
+                    {
+                        "class": "cpp",
+                        "learners": "46000",
+                        "lessons": "58",
+                        "quizzes": "180"
+                    },
+                    {
+                        "class": "python",
+                        "learners": "58900",
+                        "lessons": "124",
+                        "quizzes": "340"
+                    },
+                    {
+                        "class": "js",
+                        "learners": "48763",
+                        "lessons": "192",
+                        "quizzes": "280"
+                    },
+                    {
+                        "class": "java",
+                        "learners": "34252",
+                        "lessons": "52",
+                        "quizzes": "182"
+                    },
+                    {
+                        "class": "php",
+                        "learners": "56432",
+                        "lessons": "44",
+                        "quizzes": "256"
+                    },
+                    {
+                        "class": "csharp",
+                        "learners": "12423",
+                        "lessons": "78",
+                        "quizzes": "200"
+                    },
+                    {
+                        "class": "swift",
+                        "learners": "88762",
+                        "lessons": "90",
+                        "quizzes": "440"
+                    },
+                    {
+                        "class": "ruby",
+                        "learners": "24567",
+                        "lessons": "56",
+                        "quizzes": "223"
+                    }
+                ];
+            for (p in classesData) {
+                $("#" + classesData[p]["class"] + "Learners")
+                    .html("<h5 class=\"text-info font-weight-bold\">" + classesData[p]["learners"] + "</h5></div>");
+                $("#" + classesData[p]["class"] + "Lessons")
+                    .html("<h5 class=\"text-info font-weight-bold\">" + classesData[p]["lessons"] + "</h5></div>");
+                $("#" + classesData[p]["class"] + "Quizzes")
+                    .html("<h5 class=\"text-info font-weight-bold\">" + classesData[p]["quizzes"] + "</h5></div>");
+            }
+        })
+    </script>
+</body>
+</html>

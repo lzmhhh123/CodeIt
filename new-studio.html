@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <title>CODEIT-工作室</title>
+    <link rel="icon" href="resources/icons/codeit-web-icon.png">
+    <link rel="stylesheet" href="stylesheets/bootstrap-4.0.0-beta/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/custom/custom.css">
+    <script src="javascript/jquery-3.2.1/jquery-3.2.1.min.js"></script>
+    <script src="javascript/popperjs/popper.js"></script>
+    <script src="javascript/bootstrap-4.0.0-beta/bootstrap.min.js"></script>
+    <script src="javascript/ace-editor-1.2.8/ace.js"></script>
+    <script src="javascript/ace-editor-1.2.8/ext-language_tools.js"></script>
+</head>
+<body class="h-100">
+    <nav id="tool-bar" class="navbar navbar-expand navbar-light bg-light">
+        <a class="navbar-brand" href="new-index.html">
+            <img src="resources/icons/studio-icon.svg" alt="" height="32px">
+        </a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="new-index.html">新建</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="new-course.html">保存</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">另存为</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">重命名</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">运行</a>
+            </li>
+        </ul>
+    </nav>
+    <div id="title-bar" class="row m-0">
+        <div class="col col-2 text-center text-secondary p-1" style="background-color: #E8E8E8"><small>文件列表</small></div>
+        <div class="col col-6 text-center text-secondary p-1" style="background-color: #E8E8E8"><small>hello.py</small></div>
+        <div class="col col-4 text-center text-secondary p-1" style="background-color: #E8E8E8"><small>输出窗口</small></div>
+    </div>
+    <div id="workspace" class="row" style="height: 25%">
+        <div class="col col-2 h-100" style="background-color: #E8E8E8">
+            <ul class="list-unstyled">
+                <li class="text-secondary pl-3 pr-3 pt-1 pb-1"><small><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;project_1.py</small></li>
+                <li class="text-secondary pl-3 pr-3 pt-1 pb-1"><small><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;project_1.py</small></li>
+                <li class="text-secondary pl-3 pr-3 pt-1 pb-1"><small><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;project_1.py</small></li>
+                <li class="text-secondary pl-3 pr-3 pt-1 pb-1"><small><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;project_1.py</small></li>
+                <li class="text-secondary pl-3 pr-3 pt-1 pb-1"><small><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;project_1.py</small></li>
+                <li class="text-secondary pl-3 pr-3 pt-1 pb-1"><small><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;project_1.py</small></li>
+            </ul>
+        </div>
+        <div class="col col-6 h-100 p-0">
+            <div id="codeit-editor" class="w-100 h-100">print("hello world")</div>
+        </div>
+        <div class="col col-4 h-100"></div>
+    </div>
+<script>
+    $(document).ready(function () {
+        $("#workspace").height($(window).height() - $("#tool-bar").height() - $("#title-bar-bar").height(), function () {
+        });
+        console.log($("#code-editor").height());
+        ace.require("ace/ext/language_tools");
+        var editor = ace.edit("codeit-editor");
+        editor.session.setMode("ace/mode/python");
+        editor.setTheme("ace/theme/xcode");
+        editor.setFontSize(14);
+        editor.setOption("wrap", "free")
+        editor.setReadOnly(false);
+        editor.setOptions({
+            enableBasicAutocompletion: true,
+            enableSnippets: true,
+            enableLiveAutocompletion: true
+        });
+    })
+</script>
+</body>
+</html>

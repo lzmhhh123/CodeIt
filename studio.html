@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh" style="height: 100%;">
+<head>
+    <title>Studio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+          crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <style>
+        .no-margin-bottom {
+            margin-bottom: 0;
+        }
+        .jumbotron-footer {
+            padding-top: 32px;
+            padding-bottom: 32px;
+            margin-bottom: 0;
+        }
+        .nav-footer {
+            font-size: small;
+            cursor: pointer;
+        }
+        .footer-text {
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-bottom: 5px;
+            color: darkgray;
+            font-size: small;
+        }
+    </style>
+
+</head>
+<body style="height: 100%;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">NEWBRAIN</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="class.html">Classes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Problems</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="discuss.html">Discusses</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Studio</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html" id="login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="register"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="code-area" class="container-fluid bg-light" style="width: 100%; height: auto;">
+        <div class="row">
+            <div class="col-lg-6">
+                <pre id="code-editor" class="ace_editor" style="min-height:400px">
+                    <textarea class="ace_text-input">
+                    </textarea>
+                </pre>
+            </div>
+            <div class="col-lg-6">
+                <pre id="code-shell" class="ace_editor" style="min-height:400px">
+                    <textarea class="ace_text-input">
+                    </textarea>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div id="btn-area" class="container-fluid fixed-bottom bg-dark">
+        <div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px;">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div style="height: 100%; width: 100%;">
+                        <img src="http://img0.imgtn.bdimg.com/it/u=4240520873,3435824753&fm=27&gp=0.jpg"
+                             class="rounded float-left" alt="..." width="48px" height="48px">
+                        <!--<button type="button" class="btn btn-light float-right ml-4">运行</button>-->
+                        <!--<button type="button" class="btn btn-light float-right ml-4">保存</button>-->
+                        <!--<button type="button" class="btn btn-light float-right ml-4">分享</button>-->
+                        <div id="switch-btn" class="float-right">
+                            <div id="switch-btn-1" class="float-left" style="width: 32px; height: 32px; background-color: #eeeeee;
+                             border-bottom-left-radius: 10px; border-top-left-radius: 10px;"></div>
+                            <div id="switch-btn-2" class="float-right" style="width: 32px; height: 32px; background-color: #eeeeee;
+                            border-bottom-right-radius: 10px; border-top-right-radius: 10px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#code-area").height($(window).height()-$("nav").height()-$("#btn-area").height());
+            $("#code-editor").height($("#code-area").height());
+            $("#code-shell").height($("#code-area").height());
+
+            //初始化对象
+            editor = ace.edit("code-editor");
+
+            //设置风格和语言（更多风格和语言，请到github上相应目录查看）
+            theme = "clouds";
+            language = "python";
+            editor.setTheme("ace/theme/" + theme);
+            editor.session.setMode("ace/mode/" + language);
+
+            //字体大小
+            editor.setFontSize(18);
+
+            //设置只读（true时只读，用于展示代码）
+            editor.setReadOnly(false);
+
+            //自动换行,设置为off关闭
+            editor.setOption("wrap", "free")
+
+            //启用提示菜单
+            ace.require("ace/ext/language_tools");
+            editor.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true,
+                enableLiveAutocompletion: true
+            });
+            //初始化对象
+            editor_mirror = ace.edit("code-shell");
+
+            //设置风格和语言（更多风格和语言，请到github上相应目录查看）
+            theme = "clouds";
+            language = "python";
+            editor_mirror.setTheme("ace/theme/" + theme);
+            editor_mirror.session.setMode("ace/mode/" + language);
+
+            //字体大小
+            editor_mirror.setFontSize(18);
+
+            //设置只读（true时只读，用于展示代码）
+            editor_mirror.setReadOnly(false);
+
+            //自动换行,设置为off关闭
+            editor_mirror.setOption("wrap", "free")
+
+            //启用提示菜单
+            ace.require("ace/ext/language_tools");
+            editor_mirror.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true,
+                enableLiveAutocompletion: true
+            });
+
+            $("#code-editor").bind('DOMNodeInserted', function () {
+                $("#code-shell").html($("#code-editor").html());
+            });
+
+//            var editor_player = 1;
+
+
+//            $("#switch-btn").click(function () {
+//                if (editor_player == 1) {
+//                    $("#switch-btn-1").css("background-color", "#eeeeee");
+//                    $("#switch-btn-2").css("background-color", "forestgreen");
+//                    $("#code-editor").unbind();
+//                    $("#code-shell").bind('DOMNodeInserted', function () {
+//                        $("#code-editor").html($("#code-shell").html());
+//                    });
+//                    editor_player = 2;
+//                    editor_mirror.setReadOnly(false);
+//                }
+//                else {
+//                    $("#switch-btn-1").css("background-color", "forestgreen");
+//                    $("#switch-btn-2").css("background-color", "#eeeeee");
+//                    $("#code-editor").bind('DOMNodeInserted', function () {
+//                        $("#code-shell").html($("#code-editor").html());
+//                    });
+//                    $("#code-shell").unbind();
+//                    editor_player = 1;
+//                }
+//            })
+
+        })
+    </script>
+
+</body>
+</html>

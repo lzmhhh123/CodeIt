@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>NewBrain</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+          crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+    <style>
+        .no-margin-bottom {
+            margin-bottom: 0;
+        }
+        .jumbotron-footer {
+            padding-top: 32px;
+            padding-bottom: 32px;
+            margin-bottom: 0;
+        }
+        .nav-footer {
+            font-size: small;
+            cursor: pointer;
+        }
+        .footer-text {
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-bottom: 5px;
+            color: darkgray;
+            font-size: small;
+        }
+    </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">NEWBRAIN</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">首页<span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="class.html">教程</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">练习</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="discuss.html">讨论</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="studio.html">工作室</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav" id="logTag">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html" id="login"><i class="fa fa-sign-in" aria-hidden="true"></i> 登录</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html" id="register"><i class="fa fa-user-plus" aria-hidden="true"></i> 注册</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="newbrainIndexBanners" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#newbrainIndexBanners" data-slide-to="0" class="active"></li>
+            <li data-target="#newbrainIndexBanners" data-slide-to="1"></li>
+            <li data-target="#newbrainIndexBanners" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="image/slide1.jpg" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>专业</h3>
+                    <p>Newbrain设计最优质的内容，为用户提供指导。</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="image/slide2.jpg" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>专注</h3>
+                    <p>我们研究了几十个在线编程的网站，博采众长，打造最了解你的平台。</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="image/slide3.jpg" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>贡献</h3>
+                    <p>我们尽最大努力为用户收集资源，帮助你走向成功之路。</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#newbrainIndexBanners" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#newbrainIndexBanners" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid no-margin-bottom">
+        <div class="container">
+            <h1 class="display-5 text-center">我们认为每个人都可以学习计算机编程</h1>
+            <p class="lead">很多人往往会觉得编程很难，甚至比其他学科还要难。其实，它与其他学科一样：是知识，是工具，是我们需要学习的一
+                种能力。任何学科都是给人一个机会去发现自己，探索世界，找到与世界的联系的能力。每个学科似乎彼此独立，但实际上相互交叉。</p>
+        </div>
+    </div>
+
+    <div class="card-group">
+        <div class="card">
+            <a href="class.html">
+                <img class="card-img-top" src="image/classes.jpg" alt="Card image cap">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title text-center">教程</h4>
+                <p class="card-text">丰富的在线资源以满足不同用户的需求，总有最适合你的。</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="#">
+                <img class="card-img-top" src="image/problems.jpg" alt="Card image cap">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title text-center">练习</h4>
+                <p class="card-text">庞大的题库不断提升你的能力，勤练带来进步。</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="discuss.html">
+                <img class="card-img-top" src="image/discuss.jpg" alt="Card image cap">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title text-center">讨论</h4>
+                <p class="card-text">在这里，成千上万的用户分享他们的想法，互相帮助。</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="studio.html">
+                <img class="card-img-top" src="image/studio.jpg" alt="Card image cap">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title text-center">工作室</h4>
+                <p class="card-text">用最便捷的方法把你的思想变成现实，随时随地，轻松写代码。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="jumbotron jumbotron-fluid jumbotron-footer">
+        <ul class="nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link nav-footer" style="color: darkgray;" data-toggle="tooltip" data-html="true" data-placement="top"
+                   title="<img src='image/wechat.jpg' style='height:120px'>">
+                    <i class="fa fa-weixin" aria-hidden="true"></i> 微信
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-footer" style="color: darkgray;" data-toggle="tooltip" data-html="true" data-placement="top"
+                   title="021-xxxxxxx">
+                    <i class="fa fa-phone" aria-hidden="true"></i> 电话
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-footer" style="color: darkgray;" data-toggle="tooltip" data-html="true" data-placement="top"
+                   title="newbrain@gmail.com">
+                    <i class="fa fa-envelope" aria-hidden="true"></i> 邮箱
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-footer" style="color: darkgray;" data-toggle="tooltip" data-html="true" data-placement="top"
+                   title="we are young">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> 关于
+                </a>
+            </li>
+        </ul>
+        <p class="footer-text">Newbrain致力于提供最高质量的在线青计算机编程教育，让每个人都喜欢编程。</p>
+        <p class="footer-text">All rights reserved by Newbrain Inc. 2016-2017</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(function () {
+                $("[data-toggle='tooltip']").tooltip();
+            });
+            $(".nav-footer").mouseover(function () {
+                $(this).css("color", "black");
+            });
+            $(".nav-footer").mouseout(function () {
+                $(this).css("color", "gray");
+            });
+            var username = $.cookie("username");
+            if (username) {
+                $("#logTag").empty();
+                $("#logTag").append("<li class=\"nav-item\">\n" +
+                    "                    <a class=\"nav-link\" href=\"login.html\" id=\"login\"><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i> " +
+                    username +
+                    "</a>\n" +
+                    "                </li>");
+            }
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+{
+  "error_code": 0,
+  "data": [
+    {
+      "course-id": 0,
+      "course-name": "python",
+      "icon-white": "resources/icons/python-white.svg",
+      "icon-secondary": "resources/icons/python-secondary.svg",
+      "introduction": "Python是一种解释型、面向对象、动态数据类型的高级程序设计语言。Python由Guido vanRossum于1989年 底发明，第一个公开发行版发行于1991年。"
+    },
+    {
+      "course-id": 1,
+      "course-name": "cpp",
+      "icon-white": "resources/icons/cpp-white.svg",
+      "icon-secondary": "resources/icons/cpp-secondary.svg",
+      "introduction": "C++是一种中级语言，它由Bjarne Stroustrup 于1979年在贝尔实验室设计开发。C++进一步扩充和完善了C语言，是一种面向对象的程序设计语言。"
+    },
+    {
+      "course-id": 2,
+      "course-name": "java",
+      "icon-white": "resources/icons/java-white.svg",
+      "icon-secondary": "resources/icons/java-secondary.svg",
+      "introduction": "Java 是由Sun Microsystems公司于1995年5月推出的高级程序设计语言。Java可运行于多个平台，如Windows, Mac OS，及其他多种UNIX版本的系统。"
+    },
+    {
+      "course-id": 3,
+      "course-name": "javascript",
+      "icon-white": "resources/icons/javascript-white.svg",
+      "icon-secondary": "resources/icons/javascript-secondary.svg",
+      "introduction": "JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言。它的解释器被称为JavaScript引擎，广泛用于浏览器客户端。"
+    },
+    {
+      "course-id": 4,
+      "course-name": "php",
+      "icon-white": "resources/icons/php-white.svg",
+      "icon-secondary": "resources/icons/php-secondary.svg",
+      "introduction": "PHP是一种通用开源脚本语言。语法吸收了C语言、Java和Perl的特点，利于学习，使用广泛，主要适用于Web开发领域。"
+    },
+    {
+      "course-id": 5,
+      "course-name": "csharp",
+      "icon-white": "resources/icons/csharp-white.svg",
+      "icon-secondary": "resources/icons/csharp-secondary.svg",
+      "introduction": "C#是一种安全的、稳定的、简单的、优雅的，由C和C++衍生出来的面向对象的编程语言。它在继承C和C++强大功能的同时去掉了一些它们的复杂特性。"
+    },
+    {
+      "course-id": 6,
+      "course-name": "swift",
+      "icon-white": "resources/icons/swift-white.svg",
+      "icon-secondary": "resources/icons/swift-secondary.svg",
+      "introduction": "Swift 是一种支持多编程范式和编译式的开源编程语言,苹果于2014年WWDC（苹果开发者大会）发布，用于开发iOS，OS X 和watchOS 应用程序。"
+    },
+    {
+      "course-id": 7,
+      "course-name": "ruby",
+      "icon-white": "resources/icons/ruby-white.svg",
+      "icon-secondary": "resources/icons/ruby-secondary.svg",
+      "introduction": "Ruby 是一种开源的面向对象程序设计的服务器端脚本语言，在20世纪90年代中期由日本的松本行弘（まつもとゆきひろ）设计并开发。"
+    }
+  ]
+}

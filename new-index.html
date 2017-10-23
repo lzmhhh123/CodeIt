@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>CODEIT-首页</title>
+    <link rel="icon" href="resources/icons/codeit-web-icon.png">
+    <link rel="stylesheet" href="stylesheets/bootstrap-4.0.0-beta/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/custom/custom.css">
+    <script src="javascript/jquery-3.2.1/jquery-3.2.1.min.js"></script>
+    <script src="javascript/jquery-3.2.1/jquery.timers.js"></script>
+    <script src="javascript/popperjs/popper.js"></script>
+    <script src="javascript/bootstrap-4.0.0-beta/bootstrap.min.js"></script>
+    <script src="javascript/ace-editor-1.2.8/ace.js"></script>
+    <script src="javascript/ace-editor-1.2.8/ext-language_tools.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-light bg-transparent fixed-top">
+        <a class="navbar-brand" href="new-index.html">
+            <img src="resources/logos/codeit-brand-logo.png" alt="" height="64px">
+        </a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="new-index.html"><span style="margin-left: 20px; margin-right: 20px;">首页</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="new-course.html"><span style="margin-left: 20px; margin-right: 20px;">课程</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span style="margin-left: 20px; margin-right: 20px;">分享</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span style="margin-left: 20px; margin-right: 20px;">讨论</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span style="margin-left: 20px; margin-right: 20px;">工作室</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-0 my-sm-auto">
+            <button class="btn btn-secondary my-0 my-sm-auto mr-3" type="button"
+                    onclick="{location.href='new-login.html'}"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                真人指导</button>
+            <button class="btn btn-secondary my-0 my-sm-auto mr-3" type="button"
+                    onclick="{location.href='new-login.html'}"><i class="fa fa-sign-in" aria-hidden="true"></i>
+                立即登录</button>
+        </form>
+    </nav>
+    <img src="resources/pictures/home-page-cover.jpg" alt="" width="100%">
+    <div class="jumbotron jumbotron-fluid m-0">
+        <div class="container">
+            <h4 class="text-center">每个人都可以学习计算机编程</h4>
+        </div>
+        <br>
+        <br>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="container">
+                        <img class="m-4" src="resources/icons/courses.svg" alt="" width="64px" height="64px">
+                        <h5>丰富的在线资源</h5>
+                        <small>我们提供了丰富的在线资源，保证用户能够找到最适合自己的教程。每门课程都合理地划分了不同的章节，循序渐进。
+                            同时还配有相应的测试题，以供巩固知识。相信你一定能够享受学习的乐趣，并且得到提升。</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="container">
+                        <img class="m-4" src="resources/icons/communication.svg" alt="" width="64px" height="64px">
+                        <h5>方便的交流平台</h5>
+                        <small>如果你在学习的过程中遇到任何问题，不用烦恼，你随时可以将它发表到讨论区，让其他人来解决你的疑惑。当然，如
+                            果你写出了漂亮的代码，你也可以将它与众人分享。毕竟，授人玫瑰，手有余香。</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="container">
+                        <img class="m-4" src="resources/icons/guidance.svg" alt="" width="64px" height="64px">
+                        <h5>细心的真人指导</h5>
+                        <small>尽管强大的自学能力是一个优秀的程序员必备的素质，但是我们仍然真诚地希望给你最大程度地帮助。尤其对于新手来
+                            说，我们有贴心的在线一对一真人指导服务，任何时候，你都可以预约到你想要的老师，为你排忧解难。</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-5" style="background-color: #08ABA6; user-select: none">
+        <div class="container text-center text-white">
+            <h3><strong><big>他们</big></strong>都<strong><big>说</big></strong>过什么</h3>
+        </div>
+        <div class="container text-center mt-5">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item mb-5 active">
+                        <small class="text-white">我认为对象就像是生物学里的细胞，或者网络中的一台计算机，只能
+                            够通过消息来通信。</small>
+                        <br><br>
+                        <img class="rounded-circle" src="resources/pictures/Alan-Kay.jpg" alt="" width="100px" height="100px">
+                        <br>
+                        <p class="text-white font-weight-bold lead">Alan Kay</p>
+                        <small class="text-light">面向对象之父</small>
+                        <br>
+                    </div>
+                    <div class="carousel-item mb-5">
+                        <small class="text-white">控制复杂性是计算机编程的本质。</small>
+                        <br><br>
+                        <img class="rounded-circle" src="resources/pictures/Brian-Kernighan.jpg" alt="" width="100px" height="100px">
+                        <br>
+                        <p class="text-white font-weight-bold lead">Brian Kernighan</p>
+                        <small class="text-light">Unix的主要贡献者</small>
+                        <br>
+                    </div>
+                    <div class="carousel-item mb-5">
+                        <small class="text-white">计算机科学领域的所有问题都可以通过其他方式间接解决。</small>
+                        <br><br>
+                        <img class="rounded-circle" src="resources/pictures/David-Wheeler.jpg" alt="" width="100px" height="100px">
+                        <br>
+                        <p class="text-white font-weight-bold lead">David Wheeler</p>
+                        <small class="text-light">计算机科学的先驱</small>
+                        <br>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="p-5 text-center text-white" style="background-color: #05585C; user-select: none">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p><i class="fa fa-2x fa-users" aria-hidden="true"></i></p>
+                    <h4><strong><big>23864</big></strong>位用户</h4>
+                </div>
+                <div class="col">
+                    <p><i class="fa fa-2x fa-comments" aria-hidden="true"></i></p>
+                    <h4><strong><big>36548</big></strong>次讨论</h4>
+                </div>
+                <div class="col">
+                    <p><i class="fa fa-2x fa-code" aria-hidden="true"></i></p>
+                    <h4><strong><big>65371</big></strong>份代码</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-5 text-secondary" style="background-color: #252525; user-select: none">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <small>CODEIT是一个优秀的在线编程学习网站。我们准备了精心打造的图文教程，并且配备了相应的习题。在学习的过程中，倘
+                        若遇到困难，用户可以发表帖子到讨论区与其它用户共同交流。此外，平台也准备了一批在线的一对一真人指导，用户可以在
+                        任何界面进行预约，对于新手学员来说，他们不必折腾复杂的开发环境，编写好的代码可以直接在网页上运行，或者保存到服
+                        务器上。我们真诚希望你可以享受在CODEIT上学习的每一分钟。</small>
+                </div>
+                <div class="col ml-5">
+                    <small>纽佰瑞编程教育有限公司</small>
+                    <br><br>
+                    <small>办公地址：上海市杨浦区复旦大学创新创业学院308</small>
+                    <br><br>
+                    <small>电子邮箱：codeit@outlook.com</small>
+                    <br><br>
+                    <small>联系电话：1234567890</small>
+                    <br><br>
+                    <small>微信公众号：纽佰瑞编程</small>
+                    <br><br>
+                </div>
+                <div class="col">
+                    <form action="#">
+                        <div class="form-group">
+                            <input type="email" class="form-control form-control-sm" id="Email"
+                                   placeholder="留下您的联系邮箱便于我们回复">
+                        </div>
+                        <div class="form-group">
+                            <textarea type="password" class="form-control form-control-sm" id="Content"
+                                      placeholder="写下您宝贵的建议或疑问"
+                            rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary btn-block btn-sm">确认提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-5 text-secondary text-center" style="background-color: #1C1C1C; user-select: none">
+        <small>Newbrain Inc. 2016-2017 all right reserved. | 沪ICP备17026082号</small>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(document).scroll(function () {
+                var topDistance = $(document).scrollTop();
+                if(topDistance>=1) {
+                    $("nav").removeClass("bg-transparent").addClass("bg-light");
+                }
+                else{
+                    $("nav").removeClass("bg-light").addClass("bg-transparent");
+                }
+            });
+            function submitAdvise() {
+                ;
+            }
+        })
+    </script>
+</body>
+</html>

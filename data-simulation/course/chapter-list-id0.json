@@ -1,0 +1,56 @@
+{
+  "error_code": 0,
+  "data": {
+    "course-id": 0,
+    "course-name": "python",
+    "icon-white": "resources/icons/python-white.svg",
+    "icon-secondary": "resources/icons/python-secondary.svg",
+    "introduction": "Python是一种解释型、面向对象、动态数据类型的高级程序设计语言。Python由Guido vanRossum于1989年 底发明，第一个公开发行版发行于1991年。",
+    "chapter-list": [
+      {
+        "chapter-id": 0,
+        "chapter-title": "Python 基础教程"
+      },
+      {
+        "chapter-id": 1,
+        "chapter-title": "Python 简介"
+      },
+      {
+        "chapter-id": 2,
+        "chapter-title": "Python 环境搭建"
+      },
+      {
+        "chapter-id": 3,
+        "chapter-title": "Python 基础语法"
+      },
+      {
+        "chapter-id": 4,
+        "chapter-title": "Python 变量类型"
+      },
+      {
+        "chapter-id": 5,
+        "chapter-title": "Python 运算符"
+      },
+      {
+        "chapter-id": 6,
+        "chapter-title": "Python 条件语句"
+      },
+      {
+        "chapter-id": 7,
+        "chapter-title": "Python 循环语句"
+      },
+      {
+        "chapter-id": 8,
+        "chapter-title": "Python While 循环语句"
+      },
+      {
+        "chapter-id": 9,
+        "chapter-title": "Python for 循环语句"
+      },
+      {
+        "chapter-id": 10,
+        "chapter-title": "Python 循环嵌套"
+      }
+    ]
+  }
+}
