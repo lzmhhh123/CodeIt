@@ -7,15 +7,18 @@ module.exports = ((req, res) => { // 用户注册
 	if (!username || !password || !email || !avatar) return res.send({
 		error_code: 400
 	});
+	let now = new Date();
 	req.save("user", {
 		username: username,
 		password: password,
 		email:    email,
-		avatar:   avatar
+		avatar:   avatar,
+		created:  now,
+		modified: now,
+		disabled: false
 	}).then(r => {
-		console.log(r);
 		let result = {
-			error_code: 200,
+			error_code: 0,
 			result: r.result
 		};
 		if (r.ops && r.ops.length) result.op = r.ops[0]._id;

@@ -54,7 +54,7 @@ if (cluster.isMaster) {
 	app.use(cookieParser());
 	app.use(serveStatic(__dirname + "/webroot"));
 	app.use(daemon.mongodb());
-	// app.use(daemon.session());
+	app.use(daemon.session());
 	app.use("/api", (req, res, next) => {
 		let origin = req.header("Origin");
 		if (origin === "http://runapi.showdoc.cc") { // runapi.showdoc.cc
