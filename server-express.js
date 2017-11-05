@@ -62,6 +62,36 @@ if (cluster.isMaster) {
 			res.header("Access-Control-Allow-Credentials", "true");
 		}
 		res.data = (data => res.send({ error_code: 0, data: data })); // 输出data
+		res.find = (cursor => { // 输出游标内的数据
+			if (req.$find) {
+				let $find = req.$find;
+				return Promise.all([
+					cursor.toArray(),
+					cursor.count(false),
+					$find.$sort,
+					$find.$skip,
+					$find.$limit,
+					$find.$fields
+				]).spread((array, count, sort, skip, limit, fields) => {
+					res.json({
+						error_code: 0,
+						$array: array,
+						$count: count,
+						$sort: sort,
+						$skip: skip,
+						$limit: limit,
+						$fields: fields
+					});
+				});
+			} else if (cursor.toArray) {
+				cursor.toArray().then(array => res.json({
+					error_code: 0,
+					$array: array
+				}));
+			} else {
+				res.json(cursor);
+			}
+		});
 		res.update = (r => { // 输出update(insert/save)成功的信息
 			let result = {
 				error_code: 0,

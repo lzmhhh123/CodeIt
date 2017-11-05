@@ -29,8 +29,20 @@ body .container { background: white; }
 								<option value="user/profile/edit" data-param="username=a&password=1&email=alphaone@a2.com&avatar=2">更新资料</option>
 								<option value="user/password/update" data-param="username=a&password=1&newPass=2">更新密码1-&gt;2</option>
 								<option value="user/password/update" data-param="username=a&password=2&newPass=1">更新密码2-&gt;1</option>
+							</optgroup>
+							<optgroup label="class">
+								<option value="class/find" data-param="">公共课程列表</option>
+								<option value="class/find" data-param="name=python&intro=">公共课程查询</option>
+								<option value="class/lesson/find" data-param="title=">课程章节列表</option>
+								<option value="class/lesson" data-param="_id=59feca313826153bd1fe56b6">课程章节内容</option>
+								<option value="class/quiz/find" data-param="">课程测试列表</option>
+								<option value="class/quiz/find" data-param="lid=59feca313826153bd1fe56b6">课程测试查询</option>
+								<option value="user/class/find">用户课程列表</option>
+							</optgroup>
+							<optgroup label="bulletin">
 								<!-- <option value="" data-param=""></option> -->
 							</optgroup>
+							<optgroup label="code">
 							</optgroup>
 						</select>
 					</span>
@@ -45,7 +57,7 @@ body .container { background: white; }
 			<div class="form-group">
 				<label class="control-label col-sm-2">response data</label>
 				<div class="col-sm-10">
-					<textarea class="response form-control"></textarea>
+					<textarea class="response form-control" rows="10"></textarea>
 				</div>
 			</div>
 			<div class="form-group">
