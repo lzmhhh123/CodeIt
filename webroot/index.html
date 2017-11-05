@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>new-brain test drive</title>
+	<title>codeit test drive</title>
 	<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css" />
 	<style>
 body { background: silver; }
@@ -11,7 +11,7 @@ body .container { background: white; }
 </head>
 <body>
 	<div class="container">
-		<h3>new-brain test drive</h3>
+		<h3>codeit test drive</h3>
 		<form class="input form-horizontal">
 			<div class="form-group">
 				<label class="control-label col-sm-2">URL</label>
@@ -21,24 +21,29 @@ body .container { background: white; }
 						<select class="url form-control">
 							<option value="">-</option>
 							<optgroup label="user">
-								<option value="user/register" data-url="username=a&password=1&email=alphaone@a1.com&avatar=1">注册</option>
-								<option value="user/login" data-url="username=a&password=1">登入</option>
-								<option value="user/login" data-url="username=o&password=oo">登入失败</option>
-								<option value="user/logout" data-url="">登出</option>
-								<!-- <option value="" data-url=""></option> -->
+								<option value="user/register" data-param="username=a&password=1&email=alphaone@a1.com&avatar=1">注册</option>
+								<option value="user/login" data-param="username=a&password=1">登入</option>
+								<option value="user/login" data-param="username=o&password=oo">登入失败</option>
+								<option value="user/logout">登出</option>
+								<option value="user/profile">获取资料</option>
+								<option value="user/profile/edit" data-param="username=a&password=1&email=alphaone@a2.com&avatar=2">更新资料</option>
+								<option value="user/password/update" data-param="username=a&password=1&newPass=2">更新密码1-&gt;2</option>
+								<option value="user/password/update" data-param="username=a&password=2&newPass=1">更新密码2-&gt;1</option>
+								<!-- <option value="" data-param=""></option> -->
+							</optgroup>
 							</optgroup>
 						</select>
 					</span>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2">data</label>
+				<label class="control-label col-sm-2">request param</label>
 				<div class="col-sm-10">
-					<textarea class="data form-control"></textarea>
+					<textarea class="param form-control"></textarea>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2">data</label>
+				<label class="control-label col-sm-2">response data</label>
 				<div class="col-sm-10">
 					<textarea class="response form-control"></textarea>
 				</div>
@@ -60,17 +65,17 @@ body .container { background: white; }
 $(function () {
 	var $form = $("form"),
 		$url = $(".form-control.url"),
-		$data = $(".form-control.data"),
+		$param = $(".form-control.param"),
 		$resp = $(".form-control.response");
 	$url.change(function(e) {
 		var $selected = $url.find(":selected");
-		$data.val($selected.data("url"));
+		$param.val($selected.data("param"));
 	});
 	$form.submit(function(e) {
 		e.stopPropagation();
 		e.preventDefault();
 		var url = $url.val(),
-			data = $data.val();
+			data = $param.val();
 			$resp.val(null);
 		//console.log(e, url, data);
 		if (!url) return;

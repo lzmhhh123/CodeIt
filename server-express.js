@@ -7,13 +7,13 @@ if (cluster.isMaster) {
 		.option("url", {
 			demand: true,
 			describe: "mongodb url",
-            type: "string",
-            default: "mongodb://localhost/codeit"
+			type: "string",
+			default: "mongodb://localhost/codeit"
 		}).option("port", {
 			demand: true,
 			describe: "listening port",
-            type: "number",
-            default: 80
+			type: "number",
+			default: 80
 		}).argv;
 	let url = argv.url,
 		port = argv.port;
@@ -58,9 +58,19 @@ if (cluster.isMaster) {
 	app.use("/api", (req, res, next) => {
 		let origin = req.header("Origin");
 		if (origin === "http://runapi.showdoc.cc") { // runapi.showdoc.cc
-		res.header("Access-Control-Allow-Origin", "http://runapi.showdoc.cc");
+		res.header("Access-Control-Allow-Origin", origin);
 			res.header("Access-Control-Allow-Credentials", "true");
 		}
+		res.data = (data => res.send({ error_code: 0, data: data })); // 输出data
+		res.update = (r => { // 输出update(insert/save)成功的信息
+			let result = {
+				error_code: 0,
+				result: r.result
+			};
+			if (r.ops && r.ops.length) result.op = r.ops[0]._id;
+			res.send(result);
+		});
+		res.catch = (ex => res.send({ error_code: 400, error: ex.message })); // 输出异常信息
 		next();
 	});
 	app.use("/api", daemon.CGI("api", conf));
