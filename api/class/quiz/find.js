@@ -1,7 +1,7 @@
 "use strict";
-const mongodb = require("mongodb"),
-     ObjectId = mongodb.ObjectId,
-        DBRef = mongodb.DBRef;
+let mongodb = require("mongodb"),
+	ObjectId = mongodb.ObjectId,
+	DBRef = mongodb.DBRef;
 module.exports = ((req, res) => { // 课程测试列表
 	// console.log(req.session);
 	if (!req.session.user) return res.send({ error_code: 400, error: "not logged in" });
