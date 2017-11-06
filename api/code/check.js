@@ -18,14 +18,18 @@ module.exports = ((req, res) => { // 运行代码
 		let data = {
 			source: code.content,
 			lang: codes[code.type],
-			testcases: [ "test" ],
+			testcases: '[ "test" ]',
 			api_key: "hackerrank|3226685-2041|d95d9a5a83819bcf089268e0a3055ad961c1e72e",
 			wait: true,
 			format: "json"
-		}, byteLength;
-		data = JSON.stringify(data);
-		byteLength = Buffer.byteLength(data);
-		http.request({
+		}, temp = [], byteLength;
+		for (let k in data) {
+			temp.push(k + "=" + encodeURIComponent(data[k]));
+		}
+		temp = temp.join("&");
+		// console.log(temp);
+		byteLength = Buffer.byteLength(temp);
+		let _req = http.request({
 			hostname: "api.hackerrank.com",
 			path: "/checker/submission.json",
 			method: "POST",
@@ -39,7 +43,7 @@ module.exports = ((req, res) => { // 运行代码
 			let temp = [],
 				length = 0;
 			_res.on("data", chunk => {
-				//console.log("data", chunk.length);
+				// console.log("data", chunk.length);
 				temp.push(chunk);
 				length += chunk.length;
 			});
@@ -49,13 +53,15 @@ module.exports = ((req, res) => { // 运行代码
 					length += chunk.length;
 				}
 				let data = Buffer.concat(temp, length);
-				//console.log("end", temp, length, data.length);
+				// console.log("end", temp, length, data.length);
 				data = data.toString("utf-8");
 				data = JSON.parse(data);
-				console.log(data);
-				res.send({ error_code: 0, data: data });
+				// console.log(data);
+				res.send({ error_code: 0, data: data.result });
 			});
-		})
+		});
+		_req.write(temp);
+		_req.end();
 	}).catch(res.catch);
 });
 
