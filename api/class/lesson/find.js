@@ -8,7 +8,7 @@ module.exports = ((req, res) => { // 课程章节列表
 	let cid     = req.body.cid,
 		title   = req.body.title,
 		// content = req.body.content,
-		query   = {};
+		query   = { disabled: { $ne: true } };
 	if (cid) query["cid.$id"] = new ObjectId(cid);
 	if (title) query.title = new RegExp(title);
 	// if (content) query.content = new RegExp(content);

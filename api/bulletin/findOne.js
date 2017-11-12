@@ -8,6 +8,7 @@ module.exports = ((req, res) => { // 获取帖子内容
 	let _id = req.body._id;
 	if (!_id) return res.send({ error_code: 400, error: "need _id" });
 	req.findOne("bulletin", {
-		_id: new ObjectId(_id)
+		_id: new ObjectId(_id),
+		disabled: { $ne: true }
 	}).then(res.data).catch(res.catch);
 });

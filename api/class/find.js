@@ -4,7 +4,7 @@ module.exports = ((req, res) => { // 课程列表
 	if (!req.session.user) return res.send({ error_code: 400, error: "not logged in" });
 	let name  = req.body.name,
 		intro = req.body.intro,
-		query = {};
+		query = { disabled: { $ne: true } };
 	if (name) query.name = new RegExp(name);
 	if (intro) query.intro = new RegExp(intro);
 	req.find("class", query)

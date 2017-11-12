@@ -21,7 +21,8 @@ module.exports = ((req, res) => { // 赞或踩一篇代码
 			break;
 	};
 	req.update("code", {
-		_id: new ObjectId(_id)
+		_id: new ObjectId(_id),
+		disabled: { $ne: true }
 	}, {
 		$set: { voted: new Date()},
 		$inc: {

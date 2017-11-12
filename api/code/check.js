@@ -10,6 +10,7 @@ module.exports = ((req, res) => { // 运行代码
 	if (!_id) return res.send({ error_code: 400, error: "need _id" });
 	req.findOne("code", {
 		_id: new ObjectId(_id),
+		disabled: { $ne: true },
 		$or: [ // 公开或者作者是自己
 			{ public: true },
 			{ "author.$id": req.session.user.uid }
