@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>codeit test drive</title>
+	<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<style>
+body { background: silver; }
+body .container { background: white; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h3>codeit test drive</h3>
+		<div class="col-sm-6">
+			<textarea class="form-control left"></textarea>
+		</div>
+		<div class="col-sm-6">
+			<textarea class="form-control right"></textarea>
+		</div>
+		<div class="col-sm-12">
+			<hr>
+		</div>
+	</div>
+<script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.0.min.js"></script>
+<script defer="defer" src="/socket.io/socket.io.js"></script>
+<script defer="defer" src="/diff.js"></script>
+<script defer="defer" src="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"></script>
+<script defer="defer">
+$(function () {
+
+var socket = window.socket = io(),
+	$left = $("textarea.form-control.left"),
+	left = "\r\n", // left text temp
+	$right = $("textarea.form-control.right"),
+	right = ""; // right text temp
+$left.keyup(function(event) {
+	var $this = $(this),
+		text = $this.val();
+	// console.log(left, text);
+	text += "\r\n";
+	socket.emit("left", JsDiff.createPatch("left", left, text))
+	left = text;
+});
+socket.on("left", function(msg) {
+	// console.log(msg);
+	var old = $left.val(),
+		text = JsDiff.applyPatch(old, msg);
+	if (text === false) return;
+	// console.log("'%s' '%s'", old, text);
+	$left.val(text);
+	left = text + "\r\n";
+});
+
+});
+</script>
+</body>
+</html>

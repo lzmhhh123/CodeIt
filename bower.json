@@ -1,0 +1,21 @@
+{
+  "name": "codeit",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "notXX@qq.com"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/lzmhhh123/CodeIt",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jsdiff": "^3.4.0"
+  }
+}

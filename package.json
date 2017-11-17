@@ -20,6 +20,7 @@
     "moment": "^2.19.1",
     "mongodb": "^2.2.33",
     "serve-static": "^1.13.1",
+    "socket.io": "^2.0.4",
     "yargs": "^10.0.3"
   }
 }

@@ -1,7 +1,7 @@
 "use strict";
 let cluster = require("cluster"),
 	Daemon = require("daemon");
-if (cluster.isMaster) {
+// if (cluster.isMaster) {
 	require("log-prefix")(() => `[${new Date().toLocaleString()}]`);
 	let argv = require("yargs")
 		.option("url", {
@@ -18,37 +18,39 @@ if (cluster.isMaster) {
 	let url = argv.url,
 		port = argv.port;
 	console.log("url: \x1b[1;34m" + url + "\x1b[m, port: \x1b[1;34m" + port + "\x1b[m");
-	let num = require("os").cpus().length;
-	cluster.settings.args = [];
-	for (let i = 0; i < num; i++) {
-		let worker = cluster.fork({
-			url: url,
-			port: port
-		});
-		worker.on("exit", (code, signal) => {
-			if (signal) {
-				console.log(`worker was killed by signal: ${signal}`);
-			} else if (code) {
-				console.log(`worker exited with error code: ${code}`);
-			} else {
-				console.log(`worker succeed`);
-			}
-		});
-	}
-} else if (cluster.isWorker) {
+// 	let num = require("os").cpus().length;
+// 	cluster.settings.args = [];
+// 	for (let i = 0; i < num; i++) {
+// 		let worker = cluster.fork({
+// 			url: url,
+// 			port: port
+// 		});
+// 		worker.on("exit", (code, signal) => {
+// 			if (signal) {
+// 				console.log(`worker was killed by signal: ${signal}`);
+// 			} else if (code) {
+// 				console.log(`worker exited with error code: ${code}`);
+// 			} else {
+// 				console.log(`worker succeed`);
+// 			}
+// 		});
+// 	}
+// } else if (cluster.isWorker) {
 	let worker = cluster.worker;
-	require("log-prefix")(() => `[${new Date().toLocaleString()} #${worker.id}])`);
-	console.log(`worker #${worker.id}(${worker.process.pid}) online.`);
-	let url = process.env.url,
-		port = process.env.port;
+	// require("log-prefix")(() => `[${new Date().toLocaleString()} #${worker.id}])`);
+	// console.log(`worker #${worker.id}(${worker.process.pid}) online.`);
+	// let url = process.env.url,
+	// 	port = process.env.port;
 	let express     = require("express"),
 		bodyParser  = require("body-parser"),
 		cookieParser= require("cookie-parser"),
 		session     = require("express-session"),
 		serveStatic = require('serve-static');
-	let app    = express(),
-		daemon = new Daemon(url),
-		conf   = {};
+	let app      = express(),
+		http     = require("http").Server(app),
+		socketio = require("socket.io")(http);
+	let conf   = {},
+		daemon = new Daemon(url);
 	app.use(bodyParser.json({ limit: "50mb" }));
 	app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 	app.use(cookieParser());
@@ -104,11 +106,15 @@ if (cluster.isMaster) {
 		next();
 	});
 	app.use("/api", daemon.CGI("api", conf));
-	app.listen(port, function() {
+	socketio.on("connection", socket => {
+		console.log("a user connected");
+		socket.on("left", msg => socket.broadcast.emit("left", msg));
+	});
+	http.listen(port, function() {
 		console.log("app.listen(" + port + ")");
 	});
 	process.on('uncaughtException', err => {
 		console.error('Error caught in uncaughtException event:', err);
 		console.log(err.stack);
 	});
-}
+// }
