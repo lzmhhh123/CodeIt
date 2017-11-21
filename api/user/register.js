@@ -8,6 +8,7 @@ module.exports = ((req, res) => { // 用户注册
 		error_code: 400
 	});
 	let now = new Date();
+	// db.user.ensureIndex({ usename: 1 }, { unique: true })
 	req.save("user", {
 		username: username,
 		password: password,

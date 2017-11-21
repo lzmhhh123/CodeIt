@@ -20,7 +20,11 @@ module.exports = ((req, res) => { // 赞或踩一篇代码
 			value = -1
 			break;
 	};
-	req.update("code", {
+	// db.code.vote.ensureIndex({ uid: 1, vote: 1 }, { unique: true })
+	req.insert("code.vote", {
+		uid: req.session.user.uid,
+		vote: vote
+	}).then(result => req.update("code", {
 		_id: new ObjectId(_id),
 		disabled: { $ne: true }
 	}, {
@@ -31,5 +35,5 @@ module.exports = ((req, res) => { // 赞或踩一篇代码
 			"vote.heat": heat,
 			"vote.value": value,
 		}
-	}).then(res.update).catch(res.catch);
+	})).then(res.update).catch(res.catch);
 });

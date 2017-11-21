@@ -20,7 +20,11 @@ module.exports = ((req, res) => { // 赞或踩一篇帖子
 			value = -1
 			break;
 	};
-	req.update("bulletin", {
+	// db.bulletin.vote.ensureIndex({ uid: 1, vote: 1 }, { unique: true })
+	req.insert("bulletin.vote", {
+		uid: req.session.user.uid,
+		vote: vote
+	}).then(result => req.update("bulletin", {
 		_id: new ObjectId(_id),
 		disabled: { $ne: true }
 	}, {
@@ -31,5 +35,5 @@ module.exports = ((req, res) => { // 赞或踩一篇帖子
 			"vote.heat": heat,
 			"vote.value": value,
 		}
-	}).then(res.update).catch(res.catch);
+	})).then(res.update).catch(res.catch);
 });
