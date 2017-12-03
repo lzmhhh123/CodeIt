@@ -12,15 +12,25 @@ body .container { background: white; }
 <body>
 	<div class="container">
 		<h3>codeit test drive</h3>
-		<div class="col-sm-6">
-			<textarea class="form-control left"></textarea>
-		</div>
-		<div class="col-sm-6">
-			<textarea class="form-control right"></textarea>
-		</div>
-		<div class="col-sm-12">
-			<hr>
-		</div>
+		<form class="input form-horizontal">
+			<div class="form-group">
+				<label class="control-label col-sm-2">ROOMS</label>
+				<div class="col-sm-10">
+					<select class="rooms form-control">
+						<option value="">-</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<textarea class="form-control left"></textarea>
+			</div>
+			<div class="col-sm-6">
+				<textarea class="form-control right"></textarea>
+			</div>
+			<div class="col-sm-12">
+				<hr>
+			</div>
+		</form>
 	</div>
 <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.0.min.js"></script>
 <script defer="defer" src="/socket.io/socket.io.js"></script>
@@ -29,27 +39,55 @@ body .container { background: white; }
 <script defer="defer">
 $(function () {
 
+var $rooms = $(".form-control.rooms").change(function(e) {
+	var room = $rooms.val();
+	if (room)
+		socket.emit("join", room);
+	else
+		socket.emit("leave");
+});
+
+$.ajax("/api/room/list", {
+	method: "post",
+	data: "",
+	dataType: "json"
+}).then(function(rooms) {
+	// console.log(rooms);
+	$rooms.empty();
+	$("<option>", { text: "-", value: "" }).appendTo($rooms);
+	for (var k in rooms)
+		$("<option>", { text: k }).appendTo($rooms);
+});
+
 var socket = window.socket = io(),
 	$left = $("textarea.form-control.left"),
-	left = "\r\n", // left text temp
+	left = "\n", // left text temp
 	$right = $("textarea.form-control.right"),
 	right = ""; // right text temp
 $left.keyup(function(event) {
 	var $this = $(this),
 		text = $this.val();
 	// console.log(left, text);
-	text += "\r\n";
-	socket.emit("left", JsDiff.createPatch("left", left, text))
+	if (text[text.length - 1] != '\n')
+		text += "\n";
+	socket.emit("code", JsDiff.createPatch("left", left, text))
 	left = text;
 });
-socket.on("left", function(msg) {
+socket.on("join.done", function(room) {
+	// console.log(room);
+	$left.val(left = room.content);
+});
+socket.on("code", function(msg) {
 	// console.log(msg);
 	var old = $left.val(),
 		text = JsDiff.applyPatch(old, msg);
-	if (text === false) return;
+	if (text === false) return console.log(old, msg);
 	// console.log("'%s' '%s'", old, text);
 	$left.val(text);
 	left = text + "\r\n";
+});
+socket.on("time", function(msg) {
+	console.log(msg);
 });
 
 });

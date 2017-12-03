@@ -41,7 +41,8 @@ let cluster = require("cluster"),
 	// console.log(`worker #${worker.id}(${worker.process.pid}) online.`);
 	// let url = process.env.url,
 	// 	port = process.env.port;
-	let express     = require("express"),
+	let diff        = require("diff"),
+		express     = require("express"),
 		bodyParser  = require("body-parser"),
 		cookieParser= require("cookie-parser"),
 		session     = require("express-session"),
@@ -106,9 +107,42 @@ let cluster = require("cluster"),
 		next();
 	});
 	app.use("/api", daemon.CGI("api", conf));
+	let rooms = conf["/room/list"] = {
+		test: { member: 0, content: "\n" } // TODO: TTL
+	};
 	socketio.on("connection", socket => {
-		console.log("a user connected");
-		socket.on("left", msg => socket.broadcast.emit("left", msg));
+		let current = null; // 当前房间
+		socket.on("join", room => {
+			// console.log("join", room, current);
+			if (current) socket.leave(current);
+			socket.join(current = room);
+			if (!rooms[current])
+				rooms[current] = { member: 0, content: "\n" };
+			else
+				rooms[current].member++;
+			socket.emit("join.done", rooms[current]);
+		});
+		socket.on("leave", () => {
+			// console.log("leave", current);
+			socket.leave(current);
+			if (rooms[current])
+				rooms[current].member--;
+			socket.emit("leave.done", rooms[current]);
+			current = null;
+		});
+		socket.on("left", msg => socket.broadcast.emit("left", msg)); // deprecated
+		socket.on("code", msg => {
+			if (current) {
+				let room = rooms[current];
+				if (room) {
+					let patched = diff.applyPatch(room.content, msg);
+					if (patched !== false) room.content = patched;
+				}
+				socket.to(current).emit("code", msg);
+			} else {
+				socket.broadcast.emit("code", msg);
+			}
+		});
 	});
 	http.listen(port, function() {
 		console.log("app.listen(" + port + ")");
