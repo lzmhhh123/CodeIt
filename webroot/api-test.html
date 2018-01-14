@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>codeit test drive</title>
+	<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<style>
+body { background: silver; }
+body .container { background: white; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h3>codeit test drive</h3>
+		<form class="input form-horizontal">
+			<div class="form-group">
+				<label class="control-label col-sm-2">URL</label>
+				<div class="col-sm-10">
+					<span class="input-group">
+						<span class="input-group-addon">/api/</span>
+						<select class="url form-control">
+							<option value="">-</option>
+							<optgroup label="user">
+								<option value="user/register" data-param="username=a&password=1&email=alphaone@a1.com&avatar=1">注册</option>
+								<option value="user/login" data-param="username=a&password=1">登入</option>
+								<option value="user/login" data-param="username=o&password=oo">登入失败</option>
+								<option value="user/logout">登出</option>
+								<option value="user/profile">获取资料</option>
+								<option value="user/profile/edit" data-param="username=a&password=1&email=alphaone@a2.com&avatar=2">更新资料</option>
+								<option value="user/password/update" data-param="username=a&password=1&newPass=2">更新密码1-&gt;2</option>
+								<option value="user/password/update" data-param="username=a&password=2&newPass=1">更新密码2-&gt;1</option>
+							</optgroup>
+							<optgroup label="class">
+								<option value="class/find" data-param="">公共课程列表</option>
+								<option value="class/find" data-param="name=python&intro=">公共课程查询</option>
+								<option value="class/lesson/find" data-param="title=">课程章节列表</option>
+								<option value="class/lesson/findOne" data-param="_id=59feca313826153bd1fe56b6">课程章节内容</option>
+								<option value="class/quiz/find" data-param="">课程测试列表</option>
+								<option value="class/quiz/find" data-param="lid=59feca313826153bd1fe56b6">课程测试查询</option>
+								<option value="user/class/find">用户课程列表</option>
+							</optgroup>
+							<optgroup label="bulletin">
+								<option value="bulletin/create" data-param="title=a&content=aaa">发表帖子</option>
+								<option value="bulletin/create" data-param="title=a&content=aaa&reply_to=59fed74343a64001449d2625">回复帖子</option>
+								<option value="bulletin/find" data-param="">获取论坛帖子列表</option>
+								<option value="bulletin/findOne" data-param="_id=59fed74343a64001449d2625">获取帖子详情</option>
+								<option value="bulletin/vote" data-param="_id=59fed74343a64001449d2625&vote=up">赞一篇帖子</option>
+								<option value="bulletin/vote" data-param="_id=59fed74343a64001449d2625&vote=down">踩一篇帖子</option>
+							</optgroup>
+							<optgroup label="code">
+								<option value="code/create" data-param="public=true&title=a&type=javascript&content=return 1;">保存代码</option>
+								<option value="code/create" data-param="public=false&title=a&type=javascript&content=return 1;">保存代码</option>
+								<option value="code/find" data-param="">查询公开代码</option>
+								<option value="code/mine" data-param="">查询我的代码</option>
+								<option value="code/findOne" data-param="_id=59fedcaa43a64001449d262a">获取代码内容</option>
+								<option value="code/vote" data-param="_id=59fedcaa43a64001449d262a&vote=up">赞代码</option>
+								<option value="code/vote" data-param="_id=59fedcaa43a64001449d262a&vote=down">踩代码</option>
+								<option value="code/check" data-param="_id=59fedcaa43a64001449d262a&vote=down">HackerRandk check</option>
+							</optgroup>
+						</select>
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">request param</label>
+				<div class="col-sm-10">
+					<textarea class="param form-control"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">response data</label>
+				<div class="col-sm-10">
+					<textarea class="response form-control" rows="10"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-5">
+					<input type="submit" class="btn btn-lg submit" />
+				</div>
+				<div class="col-sm-5">
+					<input type="reset" class="btn btn-lg reset" />
+				</div>
+			</div>
+		</form>
+	</div>
+<script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.0.min.js"></script>
+<script defer="defer" src="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"></script>
+<script defer="defer">
+$(function () {
+	var $form = $("form"),
+		$url = $(".form-control.url"),
+		$param = $(".form-control.param"),
+		$resp = $(".form-control.response");
+	$url.change(function(e) {
+		var $selected = $url.find(":selected");
+		$param.val($selected.data("param"));
+	});
+	$form.submit(function(e) {
+		e.stopPropagation();
+		e.preventDefault();
+		var url = $url.val(),
+			data = $param.val();
+			$resp.val(null);
+		//console.log(e, url, data);
+		if (!url) return;
+		$.ajax("/api/" + url, {
+			method: "post",
+			data: data,
+			dataType: "text"
+		}).then(function(d) {
+			//console.log(arguments);
+			$resp.val(d);
+		})
+	});
+});
+	</script>
+</body>
+</html>

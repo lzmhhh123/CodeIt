@@ -22,6 +22,7 @@ module.exports = ((req, res) => { // 赞或踩一篇帖子
 	};
 	// db.bulletin.vote.ensureIndex({ uid: 1, vote: 1 }, { unique: true })
 	req.insert("bulletin.vote", {
+		target: new ObjectId(_id),
 		uid: req.session.user.uid,
 		vote: vote
 	}).then(result => req.update("bulletin", {

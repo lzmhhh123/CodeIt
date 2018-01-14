@@ -110,35 +110,46 @@ let cluster = require("cluster"),
 	let rooms = conf["/room/list"] = {
 		test: { member: 0, content: "\n" } // TODO: TTL
 	};
+	let roomies = [];
 	socketio.on("connection", socket => {
-		let current = null; // 当前房间
+		let me = {}; // 本人信息
+		roomies.push(me);
+		socket.on("me", info => {
+			me.name = info.name;
+		});
 		socket.on("join", room => {
-			// console.log("join", room, current);
-			if (current) socket.leave(current);
-			socket.join(current = room);
-			if (!rooms[current])
-				rooms[current] = { member: 0, content: "\n" };
+			// console.log("join", room, me.room);
+			if (me.room) {
+				socket.leave(me.room);
+				if (rooms[me.room])
+					rooms[me.room].member--;
+			}
+			socket.join(me.room = room);
+			if (!rooms[me.room])
+				rooms[me.room] = { member: 0, content: "\n" };
 			else
-				rooms[current].member++;
-			socket.emit("join.done", rooms[current]);
+				rooms[me.room].member++;
+			let _roomies = roomies.filter(roomie => roomie.room == me.room);
+			socket.emit("join.done", rooms[me.room], _roomies);
+			socket.to(me.room).emit("join.others", _roomies);
 		});
 		socket.on("leave", () => {
-			// console.log("leave", current);
-			socket.leave(current);
-			if (rooms[current])
-				rooms[current].member--;
-			socket.emit("leave.done", rooms[current]);
-			current = null;
+			// console.log("leave", me.room);
+			socket.leave(me.room);
+			if (rooms[me.room])
+				rooms[me.room].member--;
+			socket.emit("leave.done", rooms[me.room]);
+			delete me.room;
 		});
 		socket.on("left", msg => socket.broadcast.emit("left", msg)); // deprecated
 		socket.on("code", msg => {
-			if (current) {
-				let room = rooms[current];
+			if (me.room) {
+				let room = rooms[me.room];
 				if (room) {
 					let patched = diff.applyPatch(room.content, msg);
 					if (patched !== false) room.content = patched;
 				}
-				socket.to(current).emit("code", msg);
+				socket.to(me.room).emit("code", msg);
 			} else {
 				socket.broadcast.emit("code", msg);
 			}

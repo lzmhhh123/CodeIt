@@ -21,6 +21,16 @@ body .container { background: white; }
 					</select>
 				</div>
 			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">NAME</label>
+				<div class="col-sm-10">
+					<select class="name form-control">
+						<option value="">-</option>
+						<option>a</option>
+						<option>b</option>
+					</select>
+				</div>
+			</div>
 			<div class="col-sm-6">
 				<textarea class="form-control left"></textarea>
 			</div>
@@ -41,10 +51,17 @@ $(function () {
 
 var $rooms = $(".form-control.rooms").change(function(e) {
 	var room = $rooms.val();
-	if (room)
+	if (room) {
+		console.log('join', room);
 		socket.emit("join", room);
-	else
+	} else {
 		socket.emit("leave");
+	}
+});
+
+var $name = $(".form-control.name").change(function(e) {
+	var name = $name.val();
+	socket.emit("me", { name: name });
 });
 
 $.ajax("/api/room/list", {
@@ -70,15 +87,20 @@ $left.keyup(function(event) {
 	// console.log(left, text);
 	if (text[text.length - 1] != '\n')
 		text += "\n";
+	
+	console.log('emit', JsDiff.createPatch("left", left, text))
 	socket.emit("code", JsDiff.createPatch("left", left, text))
 	left = text;
 });
-socket.on("join.done", function(room) {
-	// console.log(room);
+socket.on("join.others", function(roomies) {
+	console.log(roomies);
+});
+socket.on("join.done", function(room, roomies) {
+	console.log(room, roomies);
 	$left.val(left = room.content);
 });
 socket.on("code", function(msg) {
-	// console.log(msg);
+	console.log(msg);
 	var old = $left.val(),
 		text = JsDiff.applyPatch(old, msg);
 	if (text === false) return console.log(old, msg);
